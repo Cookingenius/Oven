@@ -194,19 +194,13 @@ DJANGO_APPS = (
 
 THIRD_PARTY_APPS = (
     'rest_framework',
-    'rest_framework.authtoken',
     'corsheaders',
-    'jsonfield',
     # Database migration helpers:
     'south',
 )
 
 # Apps specific for this project go here.
 LOCAL_APPS = (
-    'accounts',
-    'foods',
-    'settings',
-    'core',
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -251,23 +245,3 @@ LOGGING = {
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#wsgi-application
 WSGI_APPLICATION = '%s.wsgi.application' % SITE_NAME
 ########## END WSGI CONFIGURATION
-
-
-########## CUSTOM USER MODEL
-AUTH_USER_MODEL = 'accounts.User'
-ACTIVATION_KEY_EXPIRATION_DAYS = 30
-
-########## EMAILS
-FROM_EMAIL = 'something@somewhere.com'
-
-########## SITE
-DISPLAY_SITE_NAME = 'Calories!'
-URL_SITE = 'https://www.google.com'
-
-########## REST FRAMEWORK
-REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'accounts.authentication.ExpiringTokenAuthentication',
-        'rest_framework.authentication.SessionAuthentication',
-    )
-}
