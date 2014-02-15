@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# calories documentation build configuration file, created by
+# Forkastic documentation build configuration file, created by
 # sphinx-quickstart on Sun Feb 17 11:46:20 2013.
 #
 # This file is execfile()d with the current directory set to its containing dir.
@@ -213,8 +213,8 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'calories', u'calories Documentation',
-     [u'ChangeToMyName'], 1)
+    ('index', 'Forkastic', u'Forkastic Documentation',
+     [u'Forkastic'], 1)
 ]
 
 # If true, show URL addresses after external links.
@@ -227,8 +227,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-  ('index', 'calories', u'calories Documentation',
-   u'ChangeToMyName', 'calories', 'One line description of project.',
+  ('index', 'Forkastic', u'Forkastic Documentation',
+   u'Forkastic', 'Forkastic', 'One line description of project.',
    'Miscellaneous'),
 ]
 
