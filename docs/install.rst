@@ -3,7 +3,7 @@ Install
 
 Create a python 3.3 virtualenv (for example on ubuntu, with virtualenvwrapper):
 
-mkvirtualenv forkastic -p /usr/bin/python3
+mkvirtualenv oven -p /usr/bin/python3
 
 To install the dependencies:
 
