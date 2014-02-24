@@ -5,8 +5,8 @@ import sys
 if __name__ == "__main__":
 
     settings = {
-        'test': "forkastic.settings.test",
-        'dev': "forkastic.settings.local"
+        'test': "oven.settings.test",
+        'dev': "oven.settings.local"
     }
 
     if sys.argv[1] == 'test':
