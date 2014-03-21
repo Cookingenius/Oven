@@ -1,23 +1,23 @@
 """Common settings and globals."""
 
 
-from os.path import abspath, basename, dirname, join, normpath
+from os.path import basename, dirname, join, normpath
 from sys import path
 
 
 ########## PATH CONFIGURATION
 # Absolute filesystem path to the Django project directory:
-DJANGO_ROOT = dirname(dirname(abspath(__file__)))
+BASE_DIR = dirname(dirname(__file__))
 
 # Absolute filesystem path to the top-level project folder:
-SITE_ROOT = dirname(DJANGO_ROOT)
+SITE_ROOT = dirname(BASE_DIR)
 
 # Site name:
-SITE_NAME = basename(DJANGO_ROOT)
+SITE_NAME = basename(BASE_DIR)
 
 # Add our project to our pythonpath, this way we don't need to type our project
 # name in our dotted import paths:
-path.append(DJANGO_ROOT)
+path.append(BASE_DIR)
 ########## END PATH CONFIGURATION
 
 
@@ -35,9 +35,6 @@ TEMPLATE_DEBUG = DEBUG
 ADMINS = (
     ('Vincent Prouillet', 'prouillet.vincent@gmail.com'),
 )
-
-# See: https://docs.djangoproject.com/en/dev/ref/settings/#managers
-MANAGERS = ADMINS
 ########## END MANAGER CONFIGURATION
 
 
@@ -118,34 +115,7 @@ SECRET_KEY = r"+=p#px=x)-e!$0kg!r4p=q9e!t8u930xy_fe1-^vhjt*4ct5=h"
 ALLOWED_HOSTS = []
 ########## END SITE CONFIGURATION
 
-
-########## FIXTURE CONFIGURATION
-# See: https://docs.djangoproject.com/en/dev/ref/settings/#std:setting-FIXTURE_DIRS
-FIXTURE_DIRS = (
-    normpath(join(SITE_ROOT, 'fixtures')),
-)
-########## END FIXTURE CONFIGURATION
-
-
 ########## TEMPLATE CONFIGURATION
-# See: https://docs.djangoproject.com/en/dev/ref/settings/#template-context-processors
-TEMPLATE_CONTEXT_PROCESSORS = (
-    'django.contrib.auth.context_processors.auth',
-    'django.core.context_processors.debug',
-    'django.core.context_processors.i18n',
-    'django.core.context_processors.media',
-    'django.core.context_processors.static',
-    'django.core.context_processors.tz',
-    'django.contrib.messages.context_processors.messages',
-    'django.core.context_processors.request',
-)
-
-# See: https://docs.djangoproject.com/en/dev/ref/settings/#template-loaders
-TEMPLATE_LOADERS = (
-    'django.template.loaders.filesystem.Loader',
-    'django.template.loaders.app_directories.Loader',
-)
-
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#template-dirs
 TEMPLATE_DIRS = (
     normpath(join(SITE_ROOT, 'templates')),
@@ -170,7 +140,7 @@ MIDDLEWARE_CLASSES = (
 
 ########## URL CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#root-urlconf
-ROOT_URLCONF = '%s.urls' % SITE_NAME
+ROOT_URLCONF = 'oven.urls'
 ########## END URL CONFIGURATION
 
 
@@ -195,8 +165,6 @@ DJANGO_APPS = (
 THIRD_PARTY_APPS = (
     'rest_framework',
     'corsheaders',
-    # Database migration helpers:
-    'south',
 )
 
 # Apps specific for this project go here.
@@ -245,5 +213,5 @@ LOGGING = {
 
 ########## WSGI CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#wsgi-application
-WSGI_APPLICATION = '%s.wsgi.application' % SITE_NAME
+WSGI_APPLICATION = 'oven.wsgi.application'
 ########## END WSGI CONFIGURATION

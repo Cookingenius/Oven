@@ -26,7 +26,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': normpath(join(DJANGO_ROOT, 'default.db')),
+        'NAME': normpath(join(BASE_DIR, 'default.db')),
         'USER': '',
         'PASSWORD': '',
         'HOST': '',
@@ -49,7 +49,7 @@ CACHES = {
 ########## TOOLBAR CONFIGURATION
 # See: https://github.com/django-debug-toolbar/django-debug-toolbar#installation
 INSTALLED_APPS += (
-    'debug_toolbar',
+    #'debug_toolbar',
     'django_extensions',
 )
 
@@ -58,7 +58,7 @@ INTERNAL_IPS = ('127.0.0.1',)
 
 # See: https://github.com/django-debug-toolbar/django-debug-toolbar#installation
 MIDDLEWARE_CLASSES += (
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
+   # 'debug_toolbar.middleware.DebugToolbarMiddleware',
 )
 
 # See: https://github.com/django-debug-toolbar/django-debug-toolbar#installation
