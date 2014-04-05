@@ -20,12 +20,12 @@ class Recipe(TimeStampedModel):
 
 
 class Picture(TimeStampedModel):
-    recipe = models.ForeignKey(Recipe)
+    recipe = models.ForeignKey(Recipe, related_name='picture')
     url = models.CharField(max_length=700)
 
 
 class Ingredient(TimeStampedModel):
-    recipe = models.ForeignKey(Recipe)
+    recipe = models.ForeignKey(Recipe, related_name='ingredients')
     food = models.ForeignKey(Food)
 
     # In which order does it appear in the ingredient list
@@ -38,13 +38,13 @@ class Ingredient(TimeStampedModel):
 
 
 class Step(TimeStampedModel):
-    recipe = models.ForeignKey(Recipe)
+    recipe = models.ForeignKey(Recipe, related_name='steps')
     text = models.TextField()
 
     # Which step of the recipe this is
-    number = models.IntegerField()
+    order = models.IntegerField()
 
-    picture = models.ForeignKey(Picture, blank=True)
+    picture = models.ForeignKey(Picture, blank=True, null=True)
 
     def __str__(self):
-        return 'Step %s for %s' % (str(self.number), self.recipe.title)
+        return '# %s for %s' % (str(self.number), self.recipe.title)
