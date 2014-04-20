@@ -6,7 +6,7 @@ from foods.models import Food
 
 
 class Recipe(TimeStampedModel):
-    title = models.CharField(max_length=255)
+    name = models.CharField(max_length=255)
     approved = models.BooleanField(default=False)
 
     # Times are in minutes
@@ -16,7 +16,7 @@ class Recipe(TimeStampedModel):
     number_servings = models.IntegerField()
 
     def __str__(self):
-        return '%s' % self.title
+        return '%s' % self.name
 
 
 class Picture(TimeStampedModel):
@@ -34,7 +34,7 @@ class Ingredient(TimeStampedModel):
     quantity = models.FloatField()
 
     def __str__(self):
-        return '%s for %s' % (self.food.name, self.recipe.title)
+        return '%s for %s' % (self.food.name, self.recipe.name)
 
 
 class Step(TimeStampedModel):
@@ -47,4 +47,4 @@ class Step(TimeStampedModel):
     picture = models.ForeignKey(Picture, blank=True, null=True)
 
     def __str__(self):
-        return '# %s for %s' % (str(self.number), self.recipe.title)
+        return '# %s for %s' % (str(self.order), self.recipe.name)
