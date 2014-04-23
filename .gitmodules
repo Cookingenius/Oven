@@ -1,0 +1,3 @@
+[submodule "FoodDB"]
+	path = FoodDB
+	url = https://github.com/Cookingenius/FoodDB.git

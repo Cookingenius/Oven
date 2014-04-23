@@ -28,7 +28,7 @@ class RecipeSerializer(serializers.ModelSerializer):
         model = Recipe
         fields = (
             'id',
-            'title',
+            'name',
             'cooking_time',
             'preparation_time',
             'number_servings',

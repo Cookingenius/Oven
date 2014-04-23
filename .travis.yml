@@ -6,6 +6,8 @@ python:
 
 install:
   - pip install -r requirements/test.txt
+  - git submodule init
+  - git submodule update
 
 script:
   - python oven/manage.py test

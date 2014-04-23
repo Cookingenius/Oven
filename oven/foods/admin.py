@@ -1,3 +1,10 @@
 from django.contrib import admin
+from .models import Category, Food
 
-# Register your models here.
+
+class FoodAdmin(admin.ModelAdmin):
+    list_filter = ('category',)
+
+
+admin.site.register(Category)
+admin.site.register(Food, FoodAdmin)
