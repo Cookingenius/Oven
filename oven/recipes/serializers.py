@@ -1,14 +1,8 @@
 from rest_framework import serializers
 
+from core.serializers import PictureSerializer
 from foods.serializers import FoodSerializer
 from .models import Ingredient, Recipe, Step
-
-
-class StepSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Step
-        fields = ('order', 'text', 'picture',)
-        ordering = ('order',)
 
 
 class IngredientSerializer(serializers.ModelSerializer):
@@ -20,7 +14,17 @@ class IngredientSerializer(serializers.ModelSerializer):
         ordering = ('order',)
 
 
+class StepSerializer(serializers.ModelSerializer):
+    picture = PictureSerializer()
+
+    class Meta:
+        model = Step
+        fields = ('order', 'text', 'picture',)
+        ordering = ('order',)
+
+
 class RecipeSerializer(serializers.ModelSerializer):
+    picture = PictureSerializer()
     steps = StepSerializer(many=True)
     ingredients = IngredientSerializer(many=True)
 
@@ -29,6 +33,9 @@ class RecipeSerializer(serializers.ModelSerializer):
         fields = (
             'id',
             'name',
+            'subtitle',
+            'description',
+            'picture',
             'cooking_time',
             'preparation_time',
             'number_servings',
