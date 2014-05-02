@@ -3,6 +3,7 @@ from os.path import dirname
 from django.core.management.base import BaseCommand, CommandError
 from django.conf import settings
 
+from core.models import Picture
 from foods.models import Food
 from foods.management.commands import import_foods
 from recipes.models import Ingredient, Recipe, Step
@@ -22,6 +23,8 @@ class Command(BaseCommand):
         """
         recipe = Recipe(
             name=name,
+            subtitle='Something something',
+            description="A refreshing take on %s. Have fun." % name,
             cooking_time=cooking_time,
             preparation_time=preparation_time,
             approved=True,
@@ -38,6 +41,11 @@ class Command(BaseCommand):
             Step(order=1, text="Step 1 blabla", recipe=recipe),
             Step(order=2, text="Step 2 blabla", recipe=recipe),
             Step(order=3, text="Step 3 blabla", recipe=recipe),
+        )
+
+        Picture.objects.create(
+            url='http://placehold.it/725x350',
+            content_object=recipe
         )
 
         recipe.save()
